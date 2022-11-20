@@ -1,13 +1,15 @@
 public class Main4 {
     public static void main(String[] argv){
         Rectangle r = new Rectangle();
+        System.out.println(r.getX());
+        System.out.println(r.getY());
         System.out.println(r);
         r.setX(4);
         r.setY(7);
 
+        System.out.println(r.getX());
+        System.out.println(r.getY());
         System.out.println(r);
-
-        System.out.println(r.toString());
 
         Rectangle r2 = new Rectangle(new Point(1, 1), 8, 6);
         System.out.println(r2);

@@ -8,7 +8,6 @@ public class Segment extends Point{
     }
 
     public Segment(Point point1, Point point2){
-        super(point1.getX(), point1.getY());
         startPoint = point1;
         endPoint = point2;
     }
@@ -21,14 +20,15 @@ public class Segment extends Point{
     }
 
     public String toString(){
-        return "(" + startPoint.getX() + ", " + startPoint.getY() + ") - (" + endPoint.getX() + ", " + endPoint.getY() + ")";
+        String s = "(" + startPoint.getX() + ", " + startPoint.getY() + ") - (" + endPoint.getX() + ", " + endPoint.getY() + ")";
+        return s;
     }
 
     public void setOffset(int offX, int offY){
-        startPoint.getX() += offX;
-        startPoint.getY() += offY;
-        endPoint.getX() += offX;
-        endPoint.getY() += offY;
+        startPoint.setX(startPoint.getX() + offX);
+        startPoint.setY(startPoint.getY() + offY);
+        endPoint.setX(endPoint.getX() + offX);
+        endPoint.setY(endPoint.getY() + offY);
     }
 
     public void setStartPoint(Point newStartPoint){

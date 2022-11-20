@@ -3,7 +3,6 @@ public class Main5 {
         Point arrayPoints[] = new Point[10];
         for(int i=0; i < arrayPoints.length; i++){
             arrayPoints[i] = new Point(i, i);
-            //System.out.println(arrayPoints[i]);
         }
 
         Rectangle arrayRectangles[] = new Rectangle[10];

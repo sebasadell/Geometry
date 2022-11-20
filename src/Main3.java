@@ -4,8 +4,9 @@ public class Main3 {
         Point p2 = new Point(6, 8);
         Segment s = new Segment(p1, p2);
 
-        //s.setOffset(4, 4);
-        System.out.println("New points of the segment: " + s.getStartPoint() + " - " + s.getEndPoint());
+        s.setOffset(4, 4);
+        System.out.println("New points of the segment: " + s);
+        s.toString();
 
         System.out.println("Its module is: " + s.getModule(p1, p2));
     }

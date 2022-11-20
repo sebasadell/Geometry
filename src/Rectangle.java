@@ -5,12 +5,12 @@ public class Rectangle extends Point{
     private int height;
 
     public Rectangle(){
+        bottomLeftPoint = new Point();
         width = 0;
         height = 0;
     }
 
     public Rectangle(Point p, int newWidth, int newHeight){
-        super(p.getX(), p.getY());
         bottomLeftPoint = p;
         width = newWidth;
         height = newHeight;

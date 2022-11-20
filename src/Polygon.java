@@ -1,41 +1,37 @@
 public class Polygon extends Segment{
-    private Point[] point;
+    private Point[] polygon;
 
     public Polygon(){
-        point = new Point[0];
+        Point[] polygon = new Point[0];
     }
 
-    public Polygon(Point p, Point p2, Point p3, Point p4){
-        super(p.getX(), p.getY());
-        point[0] = p;
-        point[1] = p2;
-        point[2] = p3;
-        point[3] = p4;
+    public Polygon(Point... points){
+        polygon = points;
     }
 
     public String toString(){
-        return point[0] + " - " + point[1] + " - " + point[2] + " - " + point[3] + " - " + point[0];
+        return (polygon[0] + " - " + polygon[1] + " - "  + polygon[2] + " - "  + polygon[3] + " - "  + polygon[0]);
     }
 
     public double getLength(){
         double length = 0;
-        for(int i = 0; i < point.length; i++){
-            if (i == point.length-1){
-                Segment s = new Segment(point[0], point[i]);
-                length += s.getModule();
+        for(int i = 0; i < polygon.length; i++){
+            if (i == polygon.length-1){
+                Segment s = new Segment(polygon[0], polygon[i]);
+                length += s.getModule(polygon[0], polygon[i]);
             }
             else{
-                Segment s = new Segment(point[i], point[i+1]);
-                length += s.getModule();
+                Segment s = new Segment(polygon[i], polygon[i+1]);
+                length += s.getModule(polygon[i], polygon[i+1]);
             }
         }
         return length;
     }
 
     public void setOffset(int offX, int offY){
-        for(int i = 0; i < point.length; i++){
-            point[i].getX() += offX;
-            point[i].getY() += offY;
+        for(int i = 0; i < polygon.length; i++){
+            polygon[i].setX(polygon[i].getX() + offX);
+            polygon[i].setY(polygon[i].getY() + offY);
         }
     }
 }
