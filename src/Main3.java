@@ -6,8 +6,13 @@ public class Main3 {
 
         s.setOffset(4, 4);
         System.out.println("New points of the segment: " + s);
-        s.toString();
+        System.out.println("Its module is: " + s.getModule());
 
-        System.out.println("Its module is: " + s.getModule(p1, p2));
+        Segment s2 = new Segment();
+        System.out.println(s2);
+        s2.setStartPoint(new Point(1, 1));
+        s2.setEndPoint(new Point(3, 3));
+        System.out.println(s2.getStartPoint());
+        System.out.println(s2.getEndPoint());
     }
 }

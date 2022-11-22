@@ -1,8 +1,8 @@
-public class Polygon extends Segment{
-    private Point[] polygon;
+public class Polygon extends Point{
+    private Point[] polygon = new Point[1];
 
     public Polygon(){
-        Point[] polygon = new Point[0];
+        polygon[0] = new Point();
     }
 
     public Polygon(Point... points){
@@ -10,7 +10,12 @@ public class Polygon extends Segment{
     }
 
     public String toString(){
-        return (polygon[0] + " - " + polygon[1] + " - "  + polygon[2] + " - "  + polygon[3] + " - "  + polygon[0]);
+        if(polygon.length == 1) {
+            return String.valueOf(polygon[0]);
+        }
+        else{
+            return String.valueOf(polygon[0]) + " - " + polygon[1] + " - "  + polygon[2] + " - "  + polygon[3] + " - "  + polygon[0];
+        }
     }
 
     public double getLength(){
@@ -18,11 +23,11 @@ public class Polygon extends Segment{
         for(int i = 0; i < polygon.length; i++){
             if (i == polygon.length-1){
                 Segment s = new Segment(polygon[0], polygon[i]);
-                length += s.getModule(polygon[0], polygon[i]);
+                length += s.getModule();
             }
             else{
                 Segment s = new Segment(polygon[i], polygon[i+1]);
-                length += s.getModule(polygon[i], polygon[i+1]);
+                length += s.getModule();
             }
         }
         return length;

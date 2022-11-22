@@ -3,8 +3,8 @@ public class Segment extends Point{
     private Point endPoint;
 
     public Segment(){
-        startPoint = new Point();
-        endPoint = new Point();
+        startPoint = new Point(0, 0);
+        endPoint = new Point(0, 0);
     }
 
     public Segment(Point point1, Point point2){
@@ -12,9 +12,9 @@ public class Segment extends Point{
         endPoint = point2;
     }
 
-    public double getModule( Point point1, Point point2){
-        int x = point2.getX() - point1.getX();
-        int y = point2.getY() - point1.getY();
+    public double getModule(){
+        int x = endPoint.getX() - startPoint.getX();
+        int y = endPoint.getY() - startPoint.getY();
         double sqrt = Math.sqrt((x * x + y * y));
         return sqrt;
     }

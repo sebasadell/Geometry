@@ -1,6 +1,5 @@
 public class Rectangle extends Point{
     private Point bottomLeftPoint;
-    private Point topRightPoint;
     private int width;
     private int height;
 
@@ -18,16 +17,18 @@ public class Rectangle extends Point{
 
     public Rectangle(Point p1, Point p2){
         bottomLeftPoint = p1;
-        topRightPoint = p2;
+        width = p2.getX() - p1.getX();
+        height = p2.getY() - p1.getY();
     }
 
     public Rectangle(Segment seg){
         bottomLeftPoint = seg.getStartPoint();
-        topRightPoint = seg.getEndPoint();
+        width = seg.getEndPoint().getX() - bottomLeftPoint.getX();
+        height = seg.getEndPoint().getY() - bottomLeftPoint.getY();
     }
 
     public String toString(){
-        return bottomLeftPoint + "- Widht: " + width + " - Height: " + height;
+        return bottomLeftPoint + "- Width: " + width + " - Height: " + height;
     }
 
     public int getArea(){
@@ -39,11 +40,11 @@ public class Rectangle extends Point{
     }
 
     public Point getTopLeftPoint(){
-        return new Point (bottomLeftPoint.getX(), bottomLeftPoint.getY()+height);
+        return new Point(bottomLeftPoint.getX(), bottomLeftPoint.getY()+height);
     }
 
     public Point getTopRightPoint(){
-        return new Point (bottomLeftPoint.getX()+width, bottomLeftPoint.getY()+height);
+        return new Point(bottomLeftPoint.getX()+width, bottomLeftPoint.getY()+height);
     }
 
     public Point getBottomLeftPoint(){
@@ -51,7 +52,7 @@ public class Rectangle extends Point{
     }
 
     public Point getBottomRightPoint(){
-        return new Point (bottomLeftPoint.getX()+width, bottomLeftPoint.getY());
+        return new Point(bottomLeftPoint.getX()+width, bottomLeftPoint.getY());
     }
 
     public int getWidth(){

@@ -12,9 +12,6 @@ public class Point {
         this.y = y;
     }
 
-    public Point(int x) {
-    }
-
     public void setX(int newX){
         x = newX;
     }
@@ -43,5 +40,13 @@ public class Point {
     public void setOffset(int offsetX, int offsetY){
         x += offsetX;
         y += offsetY;
+    }
+
+    public static double distance(Point p1, Point p2){
+        double distance = 0;
+        int x = p2.getX() - p1.getX();
+        int y = p2.getY() - p1.getY();
+        distance = Math.sqrt(x * x + y * y);
+        return distance;
     }
 }
