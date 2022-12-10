@@ -32,26 +32,17 @@ public class Triangle extends Point {
         double side1 = distance(v1, v2);
         double side2 = distance(v2, v3);
         double side3 = distance(v3, v1);
-        int equals = 0;
 
-        if(side1 == side2){
-            equals++;
-        }
-        if(side2 == side3){
-            equals++;
-        }
-        if(side3 == side1){
-            equals++;
-        }
-
-        if(equals == 0){
-            return "Scalene";
-        }
-        if(equals == 2){
-            return "Isosceles";
+        if(side1 == side2 && side2 == side3){
+            return "Equilateral";
         }
         else{
-            return "Equilateral";
+            if(side1 == side2 || side1 == side3 || side2 == side3){
+                return "Isosceles";
+            }
+            else{
+                return "Scalene";
+            }
         }
     }
 }
